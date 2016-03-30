@@ -1,0 +1,23 @@
+{
+    "instances": [
+        {
+            "name": "datasci",
+            "url_prefix": "datasci",
+            "user": "ds_user",
+            "pass": "d4t4_sc1!",
+            "target": "http://datasci.zeppelin_test:9995"
+        },
+        {
+            "name": "reporting",
+            "url_prefix": "reporting",
+            "user": "reporting_user",
+            "pass": "r3p0rt1ng!",
+            "target": "http://reporting.zeppelin_test:9995"
+        },
+        {
+            "name": "public",
+            "url_prefix": "public",
+            "target": "http://public.zeppelin_test:9995"
+        }
+    ]
+}

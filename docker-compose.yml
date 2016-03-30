@@ -1,0 +1,43 @@
+version: '2'
+
+networks:
+  test:
+
+services:
+  datasci:
+    image: alghimo/docker-zeppelin:latest
+    container_name: datasci
+    entrypoint:
+      - /etc/bootstrap.sh
+      - -d
+    networks:
+      - test
+    volumes:
+      - ./notebooks/datasci:/zeppelin/notebook
+  reporting:
+    image: alghimo/docker-zeppelin:latest
+    container_name: reporting
+    entrypoint:
+      - /etc/bootstrap.sh
+      - -d
+    networks:
+      - test
+    volumes:
+      - ./notebooks/reporting:/zeppelin/notebook
+  public:
+    image: alghimo/docker-zeppelin:latest
+    container_name: public
+    entrypoint:
+      - /etc/bootstrap.sh
+      - -d
+    networks:
+      - test
+    volumes:
+      - ./notebooks/public:/zeppelin/notebook
+  proxy:
+    image: alghimo/docker-httpproxy:latest
+    container_name: proxy
+    ports:
+      - "8080:8080"
+    networks:
+      - test
